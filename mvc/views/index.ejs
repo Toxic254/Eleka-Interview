@@ -1,13 +1,51 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html lang="en">
+
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eleka Interview Weather App.</title>
+    <link rel="stylesheet" href="../stylesheets/style.css">
   </head>
+
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %> Interview Application Prepared By</p>
-    <p>Cyrus G. Ndirangu</p>
-    <a href="http://"></a>
+    <div class="container">
+      <header>
+        <div class="compass-icon"><img src="./images/rainy-sunny.svg" alt="Eleka Interview Weather App Logo"></div>
+      </header>
+      <div class="weather-title">
+        <h1>Eleka App.</h1>
+        <p>View the current weather for your city, from wherever you are in the world 😎.</p>
+      </div>
+      <form action="/" method="POST">
+        <input type="text" name="city" class="ghost-input" placeholder="Enter your city">
+      </form>
+
+      <div class="result">
+        <% if(temp !==null) {%>
+          <h1 class="temp">
+            <%= temp %>
+          </h1>
+        <% } %>
+
+            <div class="icon-des">
+              <% if(icon !==null) {%>
+                <img class="icon" src="http://openweathermap.org/img/w/<%= icon %>.png" alt="">
+              <% } %>
+              <% if(des !==null) {%>
+                <h3>
+                  <%= des %>
+                </h3>
+              <% } %>
+            </div>
+
+            <% if(city !==null) {%>
+              <p class="city">
+                <%= city %>
+              </p>
+            <% } %>
+
+      </div>
+    </div>
   </body>
+
 </html>

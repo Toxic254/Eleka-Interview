@@ -5,16 +5,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./mvc/routes/index');
-var apiRouter = require('./mvc/routes/api');
+var weatherRouter = require('./mvc/routes/api');
 
 var app = express();
-
-// Time Middleware
-app.use((req, res, next) => {
-  req.requestTime = new Date().toISOString();
-  next();
-});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'mvc/views'));
@@ -26,8 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/api/v1/', apiRouter);
+app.use('/', weatherRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

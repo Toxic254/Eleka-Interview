@@ -23,7 +23,7 @@ exports.postWeatherDetails = async (req, res) => {
           .then(res => res.json())
         // From the data we pick the data to be represented in the front-end.
           .then(data => {
-            console.log(data)
+            console.log(data.city)
             if (data.message === 'city not found') {
               res.render('index', {
                 city: data.message,
@@ -33,15 +33,16 @@ exports.postWeatherDetails = async (req, res) => {
               })
             } else {
               const cityId = data.city.id;
+              const country = data.city.country
               const city = data.city.name;
               const lon = data.city.coord.lon;
               const lat = data.city.coord.lat;
               // TO DO - Bring all temperatures and pressures first,
               // Before compiling them to form graph data
-              const temp = data.main.temp;
+              
     
               res.status(201).render('index', {
-                cityId, city, des, icon, temp
+                cityId, country, city, lon, lat
               });
             }
           });

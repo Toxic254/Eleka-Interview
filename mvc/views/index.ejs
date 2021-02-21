@@ -21,28 +21,27 @@
       </form>
 
       <div class="result">
-        <% if(temp !==null) {%>
-          <h1 class="temp">
-            <%= temp %>
-          </h1>
+        <% if(city !==null) {%>
+          <p class="city">
+            City: <u><%= city %></u>
+            Country: <u><%= country %></u>
+          </p>
         <% } %>
-
-            <div class="icon-des">
-              <% if(icon !==null) {%>
-                <img class="icon" src="http://openweathermap.org/img/w/<%= icon %>.png" alt="">
-              <% } %>
-              <% if(des !==null) {%>
-                <h3>
-                  <%= des %>
-                </h3>
-              <% } %>
-            </div>
-
-            <% if(city !==null) {%>
-              <p class="city">
-                <%= city %>
-              </p>
-            <% } %>
+        <% if(cityId !==null) {%>
+          <p class="city">
+            City ID: <u><%= cityId %></u>
+          </p>
+        <% } %>
+        <% if(lat !==null) {%>
+          <p class="city">
+            Latitude: <u><%= lat %></u>
+          </p>
+        <% } %>
+        <% if(lon !==null) {%>
+          <p class="lon">
+            Longitude: <u><%= lon %></u>
+          </p>
+        <% } %>
 
       </div>
     </div>
